@@ -2,28 +2,17 @@
 
 Passwords are broken. Passwordless is an open source Meteor package for token-based one-time password (OTPW) authentication, which is faster to deploy, better for your users, and more secure.
 
+This project was cloned and updated from: [https://github.com/acemtp/meteor-accounts-passwordless](https://github.com/acemtp/meteor-accounts-passwordless)
+
 ## Install
 
 ```
-meteor add acemtp:accounts-passwordless
+meteor add orcprogramming:accounts-passwordless
 ```
 
 ## Usage
 
-
-You have 2 ways to use it, the highlevel that use the default ui or the low level to plug on your own application.
-
-### Default UI
-
-This is the easiest way to use the package. Add this line in a template and voila:
-
-    {{> loginPasswordless}}
-
-This is how it's done on the [live demo](http://passwordless.meteor.com). The source code of this example is on [Github](https://github.com/efounders/meteor-accounts-passwordless/tree/master/example).
-
 ### Low Level API
-
-If the default layout doesn't fit your needs, you can call the low level api. You can copy how it's made on the [default ui source file](https://github.com/efounders/meteor-accounts-passwordless/blob/master/accounts-passwordless-ui.js).
 
 Basically, there're 3 methods you have to call on the client:
 
@@ -105,7 +94,7 @@ Router.route('/login/:selector/:code', function () {
     code: this.params.code,
     selector: decodeURIComponent(this.params.selector)
   };
-  
+
   Meteor.loginWithPasswordless(options, function (error, result) {
       if (error) {
         console.error(error);
